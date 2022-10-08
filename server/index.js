@@ -9,6 +9,13 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
+
+app.get("/", (req, res) => {
+    res.set("Access-Control-Allow-Origin", "*");
+    res.send("Welcome to our server!");
+  });
+  
+
 console.log(process.env.API_PASSWORD);
 const db = mysql.createConnection({
     user: 'root',
