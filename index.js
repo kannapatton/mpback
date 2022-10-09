@@ -36,7 +36,7 @@ app.use(function(req, res, next) {
 //  app.use(cors(corsOptions)) // Use this after the variable declaration
 
 const db = mysql.createConnection({
-    user: process.env.USER,
+    username: process.env.USER,
     host: process.env.HOST,
     password: process.env.PASSWORD,
     database: process.env.DATABASE
