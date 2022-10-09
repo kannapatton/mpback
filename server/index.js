@@ -9,10 +9,15 @@ require('dotenv').config();
 //middleware that parses info from front to backend
 app.use(cors());
 app.use(express.json());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 // res.header( "Access-Control-Allow-Origin" );
-app.options("*", cors({ origin: 'http://localhost:3000', optionsSuccessStatus: 200 }));
+// app.options("*", cors({ origin: 'http://localhost:3000', optionsSuccessStatus: 200 }));
 
-app.use(cors({ origin: "http://localhost:3000", optionsSuccessStatus: 200 }));
+// app.use(cors({ origin: "http://localhost:3000", optionsSuccessStatus: 200 }));
 
 // app.get("/", (req, res) => {
 //     res.set("Access-Control-Allow-Origin", 'http://localhost:3000');
@@ -36,7 +41,7 @@ const db = mysql.createConnection({
     database: 'mealplan'
 });
 
-app.post('/create', (req, res)=>{
+app.post('/create', (req, res,)=>{
     const sunday= req.body.sunday
     const monday= req.body.monday
     const tuesday= req.body.tuesday
