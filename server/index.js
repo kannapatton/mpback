@@ -126,3 +126,5 @@ app.delete('/delete/:iddinner', (req, res) => {
 app.listen(3009, ()=>{
     console.log('yay server is running on 3009');
 });
+
+    // "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
