@@ -7,7 +7,7 @@ require('dotenv').config();
 
 
 //middleware that parses info from front to backend
-app.use(cors());
+app.use(cors({origin:true, credentials:true}));
 app.use(express.json());
 
 
@@ -21,7 +21,7 @@ app.use(express.json());
 //     credentials:true,            //access-control-allow-credentials:true
 //     optionSuccessStatus:200,
 //  };
-access-control-allow-origin: 'http://localhost:3000';
+// access-control-allow-origin: 'http://localhost:3000';
 
  
  app.use(cors(corsOptions)) // Use this after the variable declaration
