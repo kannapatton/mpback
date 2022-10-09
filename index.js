@@ -37,7 +37,7 @@ app.use(function(req, res, next) {
 
 const db = mysql.createConnection({
     user: 'root',
-    host:'localhost',
+    host: process.env.JAWSDB_URL,
     password: process.env.PASSWORD,
     database: 'mealplan'
 });
