@@ -15,7 +15,13 @@ app.get("/", (req, res) => {
     res.send("Welcome to our server!");
   });
   
-
+  const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+ };
+ 
+ app.use(cors(corsOptions)) // Use this after the variable declaration
 console.log(process.env.API_PASSWORD);
 const db = mysql.createConnection({
     user: 'root',
