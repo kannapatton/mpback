@@ -4,14 +4,19 @@ const mysql = require('mysql2');
 const cors = require('cors');
 // const { access } = require('fs');
 require('dotenv').config();
-
+let port = process.env.PORT || 3009;
 //middleware that parses info from front to backend
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public'));
 
 app.use(function(req, res, next) {
+	res.header('Acess-Control-Allow-Methods', 'POST, GET, DELETE');
 	res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+	res.header('Access-Control-Allow-Credentials', true);
+	res.header('Content-Type', 'application/json');
 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	res.header('Access-Control-Allow-Methods', '*');
 	next();
 });
 // res.header( "Access-Control-Allow-Origin" );
@@ -137,8 +142,8 @@ app.delete('/delete/:iddinner', (req, res) => {
 	});
 });
 
-app.listen(process.env.PORT || 3009, () => {
-	console.log('yay server is running on 3009');
+app.listen(port, () => {
+	console.log(`yay server is running on ${port}`);
 });
 
 // "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
