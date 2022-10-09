@@ -10,11 +10,12 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+app.options('/create', cors());
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
 // res.header( "Access-Control-Allow-Origin" );
 // app.options("*", cors({ origin: 'http://localhost:3000', optionsSuccessStatus: 200 }));
 
@@ -42,7 +43,8 @@ const db = mysql.createConnection({
     database: 'mealplan'
 });
 
-app.post('/create', function(req, res, next){
+app.post('/create', cors(), (req, res)=>{
+    
     const sunday= req.body.sunday
     const monday= req.body.monday
     const tuesday= req.body.tuesday
@@ -64,7 +66,7 @@ app.post('/create', function(req, res, next){
     );
 });
 
-app.get('/menu', function(req, res, next) {
+app.get('/menu', cors(),  (req, res) =>{
     db.query("SELECT * FROM dinner", (err, result) =>{
         if (err){
             console.log(err)
@@ -86,7 +88,7 @@ app.get('/menu', function(req, res, next) {
 //         }
 //     });
 // });
-app.post('/signup', (req, res) => {
+app.post('/signup', cors(), (req, res) => {
     const username = req.body.username
     const password = req.body.password
     db.query('INSERT INTO users (username, password) VALUES (?,?)', 
@@ -102,7 +104,7 @@ app.post('/signup', (req, res) => {
     );
 
 })
-app.get('/login', (req, res) =>{
+app.get('/login', cors(), (req, res) =>{
     const { username, password } = req.body;
   
     let sql = "SELECT * FROM users WHERE username = ?";
@@ -127,7 +129,7 @@ app.get('/login', (req, res) =>{
       });
     });
 });
-app.delete('/delete/:iddinner', (req, res) => {
+app.delete('/delete/:iddinner',cors(),  (req, res) => {
     const iddinner = req.params.iddinner;
     db.query("DELETE FROM dinner WHERE iddinner = ?", iddinner, (err, result) => {
         if (err) {
