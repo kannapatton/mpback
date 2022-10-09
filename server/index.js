@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql2');
 const cors = require('cors');
+const { access } = require('fs');
 require('dotenv').config();
 
 
@@ -10,16 +11,18 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get("/", (req, res) => {
-    res.set("Access-Control-Allow-Origin", 'http://localhost:3000');
-    res.send("Welcome to our server!");
-  });
+// app.get("/", (req, res) => {
+//     res.set("Access-Control-Allow-Origin", 'http://localhost:3000');
+//     res.send("Welcome to our server!");
+//   });
   
-  const corsOptions ={
-    origin:'http://localhost:3000', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200,
- };
+//   const corsOptions ={
+//     origin:'http://localhost:3000', 
+//     credentials:true,            //access-control-allow-credentials:true
+//     optionSuccessStatus:200,
+//  };
+access-control-allow-origin: 'http://localhost:3000';
+
  
  app.use(cors(corsOptions)) // Use this after the variable declaration
 console.log(process.env.API_PASSWORD);
