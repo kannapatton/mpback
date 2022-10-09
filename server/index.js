@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql2');
 const cors = require('cors');
-const { access } = require('fs');
+// const { access } = require('fs');
 require('dotenv').config();
 
 
@@ -24,7 +24,7 @@ res.header( "Access-Control-Allow-Origin" );
 // access-control-allow-origin: 'http://localhost:3000';
 
  
- app.use(cors(corsOptions)) // Use this after the variable declaration
+//  app.use(cors(corsOptions)) // Use this after the variable declaration
 console.log(process.env.API_PASSWORD);
 const db = mysql.createConnection({
     user: 'root',
