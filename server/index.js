@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-    res.set("Access-Control-Allow-Origin", 'https://mlplanner.herokuapp.com/');
+    res.set("Access-Control-Allow-Origin", 'localhost:3000/');
     res.send("Welcome to our server!");
   });
   
