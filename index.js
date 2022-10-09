@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 app.use(function(req, res, next) {
 	res.header('Acess-Control-Allow-Methods', 'POST, GET, DELETE');
-	res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+	res.header('Access-Control-Allow-Origin', 'https://mpfront.vercel.app'); // update to match the domain you will make the request from
 	res.header('Access-Control-Allow-Credentials', true);
 	res.header('Content-Type', 'application/json');
 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
