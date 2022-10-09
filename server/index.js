@@ -9,7 +9,10 @@ require('dotenv').config();
 //middleware that parses info from front to backend
 app.use(cors());
 app.use(express.json());
-res.header( "Access-Control-Allow-Origin" );
+// res.header( "Access-Control-Allow-Origin" );
+app.options("*", cors({ origin: 'http://localhost:3000', optionsSuccessStatus: 200 }));
+
+app.use(cors({ origin: "http://localhost:3000", optionsSuccessStatus: 200 }));
 
 // app.get("/", (req, res) => {
 //     res.set("Access-Control-Allow-Origin", 'http://localhost:3000');
