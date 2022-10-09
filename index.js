@@ -36,10 +36,10 @@ app.use(function(req, res, next) {
 //  app.use(cors(corsOptions)) // Use this after the variable declaration
 
 const db = mysql.createConnection({
-    user: 'root',
+    user: process.env.USER,
     host: process.env.JAWSDB_URL,
     password: process.env.PASSWORD,
-    database: 'mealplan'
+    database: process.env.DATABASE
 });
 
 app.post('/create', (req, res)=>{
