@@ -7,7 +7,7 @@ require('dotenv').config();
 
 
 //middleware that parses info from front to backend
-app.use(cors({exposedHeaders: 'Authorization'}));
+app.use(cors());
 app.use(express.json());
 
 app.use(function(req, res, next) {
@@ -34,7 +34,7 @@ app.use(function(req, res, next) {
 
  
 //  app.use(cors(corsOptions)) // Use this after the variable declaration
-console.log(process.env.API_PASSWORD);
+
 const db = mysql.createConnection({
     user: 'root',
     host:'localhost',
