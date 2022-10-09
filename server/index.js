@@ -7,9 +7,9 @@ require('dotenv').config();
 
 
 //middleware that parses info from front to backend
-app.use(cors({origin:true, credentials:true}));
+app.use(cors());
 app.use(express.json());
-
+res.header( "Access-Control-Allow-Origin" );
 
 // app.get("/", (req, res) => {
 //     res.set("Access-Control-Allow-Origin", 'http://localhost:3000');
