@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-    res.set("Access-Control-Allow-Origin", 'http://localhost:3000');
+    res.set("Access-Control-Allow-Origin", 'http://localhost:3000/dinner');
     res.send("Welcome to our server!");
   });
   
