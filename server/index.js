@@ -11,12 +11,12 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-    res.set("Access-Control-Allow-Origin", 'http://localhost:3000/dinner');
+    res.set("Access-Control-Allow-Origin", 'http://localhost:3000');
     res.send("Welcome to our server!");
   });
   
   const corsOptions ={
-    origin:'*', 
+    origin:'http://localhost:3000', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200,
  };
