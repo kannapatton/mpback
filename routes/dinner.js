@@ -3,12 +3,12 @@ const dinnerController = require('../controllers/dinner');
 
 const { checkJwt } = require('../middleware/index.js');
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/', dinnerController.getMenu)
+router.get('/', dinnerController.getMenu);
 
-router.post('/', dinnerController.createDinner)
+router.post('/create', dinnerController.createDinner);
 
-router.delete('/:iddinner', dinnerController.deleteDinner)
+router.delete('/:iddinner', dinnerController.deleteDinner);
 
-module.exports = router 
+module.exports = router;
