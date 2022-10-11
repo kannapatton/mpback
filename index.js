@@ -20,10 +20,10 @@ app.use(function(req, res, next) {
 	next();
 });
 
-const { logger } = require('../middleware/index.js');
-const authRouter = require('../routes/auth');
-const usersRouter = require('../routes/users');
-const dinnerRouter = require('../routes/dinner');
+const { logger } = require('./middleware/index.js');
+const authRouter = require('./routes/auth');
+const usersRouter = require('./routes/users');
+const dinnerRouter = require('./routes/dinner');
 
 app.use(logger);
 app.use('/auth', authRouter);
